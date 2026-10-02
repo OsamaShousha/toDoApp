@@ -40,7 +40,10 @@ function toggle(id){
 
 
 
+function removeTodo(id){
+  setTodos(todos.filter((t)=>t.id !==id));
 
+}
 
 
 
@@ -62,26 +65,32 @@ function toggle(id){
        className="input"
        value={text}
        
-///Creating logic to add text when 
+
     onChange={(e)=>setText(e.target.value)}
 
          placeholder="Ny uppgift"
          />
+          
       <button className="add" type="submit">Lägg till</button>
      </form>
+
 
      <ol className="meny">
       {todos.map((t)=>(
         <li key={t.id}>
-        <button  type="button" onClick={()=>toggle(t.id)}>
+
+
+        <button  className='toggle' type="button" onClick={()=>toggle(t.id)}>
+
           {t.isDone ?  "Avmarkera" : "Klar"}
           
         </button>{" "}
+
          {t.text}{" "}
         
         
         
-        <button type="button" onClick=""></button>
+        <button  className='delet'type="button" onClick={()=>removeTodo(t.id)}>Tar bort</button>
         </li>
       ))}
       
