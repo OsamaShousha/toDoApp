@@ -1,5 +1,4 @@
 import { useState } from 'react'
-
 import './App.css'
 
 function App() {
@@ -7,7 +6,7 @@ function App() {
     
   { id: 1, text: "Köp kaffe", isDone: false },
   { id: 2, text: "Öppna campet", isDone: true },
-  {id: 3, text: "Pusha till GitHub", isDone: false },
+  {id: 3, text: "Pusha till GitHub", isDone: false }
   ]);
 
    const [text, setText] = useState("");
@@ -19,6 +18,9 @@ function addTodo(e){
 
   const trimmed = text.trim();
   if(!trimmed)return;
+
+  setTodos([...todos, {id:Date.now(), text: trimmed, isDone: false}]);
+  setText("");
 }
 
 
@@ -41,12 +43,14 @@ function addTodo(e){
   return (
     <>
      <h1>Min ToDo</h1>
-    <main className='main' onChange={addTodo}>
-         <form  className="form">
+    <main className="main" >
+         <form  className="form" onSubmit={addTodo}>
       <label >En todo till</label>
       <input type="text"
        className="input"
        value={text}
+       
+
        
          placeholder="Ny uppgift"
          />
