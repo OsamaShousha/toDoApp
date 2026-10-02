@@ -6,7 +6,8 @@ function App() {
     
   { id: 1, text: "Köp kaffe", isDone: false },
   { id: 2, text: "Öppna campet", isDone: true },
-  {id: 3, text: "Pusha till GitHub", isDone: false }
+  {id: 3, text: "Pusha till GitHub", isDone: false },
+  {id: 4, text: "Boja Om", isDone: false },
   ]);
 
    const [text, setText] = useState("");
@@ -31,6 +32,11 @@ function addTodo(e){
 
 
 
+function toggle(id){
+  setTodos(
+    todos.map((t)=>(t.id === id ? {...t, isDone: !t.isDone}:t)));
+}
+
 
 
 
@@ -52,7 +58,7 @@ function addTodo(e){
     <main className="main" >
          <form  className="form" onSubmit={addTodo}>
       <label >En todo till</label>
-      <input type="text"
+      <input
        className="input"
        value={text}
        
@@ -64,20 +70,24 @@ function addTodo(e){
       <button className="add" type="submit">Lägg till</button>
      </form>
 
-     <ul className="meny">
+     <ol className="meny">
       {todos.map((t)=>(
         <li key={t.id}>
-        <button ></button>
+        <button  type="button" onClick={()=>toggle(t.id)}>
+          {t.isDone ?  "Avmarkera" : "Klar"}
+          
+        </button>{" "}
+         {t.text}{" "}
         
         
         
-        <button></button>
+        <button type="button" onClick=""></button>
         </li>
       ))}
       
     
 
-     </ul>
+     </ol>
     </main>
   
     </>
