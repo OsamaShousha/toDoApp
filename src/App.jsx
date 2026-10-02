@@ -65,12 +65,17 @@ function addTodo(e){
      </form>
 
      <ul className="meny">
-     <button type="button"  className="toggel" >
-         Saknar logik
-     </button>{" "}
-
-
-     <button type="button" className="delet" >Tar bort</button>
+      {todos.map((t)=>(
+        <li key={t.id}>
+        <button ></button>
+        
+        
+        
+        <button></button>
+        </li>
+      ))}
+      
+    
 
      </ul>
     </main>
