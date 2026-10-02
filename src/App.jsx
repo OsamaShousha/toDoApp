@@ -13,26 +13,53 @@ function App() {
    const [text, setText] = useState("");
 
 
+
+function addTodo(e){
+  e.preventDefault();
+
+  const trimmed = text.trim();
+  if(!trimmed)return;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   return (
     <>
-    <main className='main'>
+     <h1>Min ToDo</h1>
+    <main className='main' onChange={addTodo}>
          <form  className="form">
-      <label htmlFor="">En todo till</label>
+      <label >En todo till</label>
       <input type="text"
        className="input"
-        value={text}
+       value={text}
+       
          placeholder="Ny uppgift"
          />
       <button className="add" type="submit">Lägg till</button>
      </form>
 
      <ul className="meny">
-     <button type="button">
-
+     <button type="button"  className="toggel" >
+         Saknar logik
      </button>{" "}
 
 
-     <button type="button">Tar bort</button>
+     <button type="button" className="delet" >Tar bort</button>
 
      </ul>
     </main>

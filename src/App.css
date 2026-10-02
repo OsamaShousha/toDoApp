@@ -4,12 +4,49 @@
   box-sizing: border-box;
 }
 
+body{
+  background-color: rgb(231, 241, 241);
+}
+
 .main{
   width: 50%;
   background-color: beige;
   margin: 3rem auto;
   border: 1px solid black;
   padding: 2rem;
-  
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
 
+.input{
+  width: 100%;
+  padding: 0.3rem;
+  color: black;
+}
+
+.add, .delet, .toggel{
+  width: 90px;
+  height: 30px;
+  margin-top: 0.5rem;
+ 
+}
+
+.add{
+  background-color: green;
+
+}
+
+.toggel{
+  background-color: yellow;
+}
+
+.delet{
+  background-color: brown;
+}
+
+.meny{
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
 }
