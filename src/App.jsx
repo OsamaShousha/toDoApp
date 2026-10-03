@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import './App.css'
+import List from "./List"
+import Form from "./Form"
 
 function App() {
   const [todos, setTodos] = useState([
@@ -14,19 +16,19 @@ function App() {
 
 
 
-   // Creating the logic to add a new Todo when the form is submitted
+ 
 function addTodo(e){
-   // Preventing the browser from submitting/reloading the page
+   
   e.preventDefault();
 
   const trimmed = text.trim();
-    // Stop if the input is empty
+   
   if(!trimmed)return;
-  // Creating a new Todo and adding it to the existing todos
+  
 
   setTodos([...todos, {id:Date.now(), text: trimmed, isDone: false}]);
 
-    // Clearing the input after adding the Todo
+   
   setText("");
 }
 
@@ -41,7 +43,7 @@ function toggle(id){
 
 
 function removeTodo(id){
-  setTodos(todos.filter((t)=>t.id !==id));
+  setTodos(todos.filter((t)=> t.id !==id));
 
 }
 
@@ -57,10 +59,11 @@ function removeTodo(id){
 
   return (
     <>
+    <main className="main">
      <h1>Min ToDo</h1>
-    <main className="main" >
-         <form  className="form" onSubmit={addTodo}>
-      <label >En todo till</label>
+    {/* {/* <main className="main" > */}
+         {/* <form  className="form" onSubmit={addTodo}>
+      <label >Lägg till en uppgift</label>
       <input
        className="input"
        value={text}
@@ -72,10 +75,10 @@ function removeTodo(id){
          />
           
       <button className="add" type="submit">Lägg till</button>
-     </form>
+     </form>  */}
 
 
-     <ol className="meny">
+     {/* <ol className="meny">
       {todos.map((t)=>(
          <li className={t.isDone ? "done" : ""} key={t.id}>
         
@@ -87,7 +90,7 @@ function removeTodo(id){
           {t.isDone ?  "Avmarkera" : "Klar"}
           
           
-        </button>{" "}
+        </button>{"  "}
 
          {t.text}{" "}
         
@@ -99,10 +102,27 @@ function removeTodo(id){
       
     
 
-     </ol>
+     </ol> */}
+ <Form 
+     text={text}
+     addTodo={addTodo}
+     setText={setText}
+     />
+     
+     <List
+     todos={todos}
+     toggle={toggle}
+     removeTodo={removeTodo}
+     />
+
+
+
+    
+
     </main>
   
-    </>
+ 
+  </>
   );
 }
 
