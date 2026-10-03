@@ -77,12 +77,15 @@ function removeTodo(id){
 
      <ol className="meny">
       {todos.map((t)=>(
-        <li key={t.id}>
+         <li className={t.isDone ? "done" : ""} key={t.id}>
+        
 
 
         <button  className='toggle' type="button" onClick={()=>toggle(t.id)}>
+         
 
           {t.isDone ?  "Avmarkera" : "Klar"}
+          
           
         </button>{" "}
 
@@ -90,7 +93,7 @@ function removeTodo(id){
         
         
         
-        <button  className='delet'type="button" onClick={()=>removeTodo(t.id)}>Tar bort</button>
+        <button  className='delete'type="button" onClick={()=>removeTodo(t.id)}>Ta bort</button>
         </li>
       ))}
       
