@@ -1,3 +1,5 @@
+
+
 import { useState } from 'react'
 import './App.css'
 import List from "./List"
@@ -61,6 +63,8 @@ function removeTodo(id){
     <>
     <main className="main">
      <h1>Min ToDo</h1>
+
+
     {/* {/* <main className="main" > */}
          {/* <form  className="form" onSubmit={addTodo}>
       <label >Lägg till en uppgift</label>
@@ -108,7 +112,7 @@ function removeTodo(id){
      addTodo={addTodo}
      setText={setText}
      />
-     
+
      <List
      todos={todos}
      toggle={toggle}

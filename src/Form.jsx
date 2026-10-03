@@ -1,5 +1,5 @@
 
-function Form({text, addTodo, setText }){
+function Form({ addTodo, text, setText }){
     return(
     
         
